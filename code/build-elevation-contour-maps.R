@@ -31,7 +31,7 @@ map_elevation_contours <- function(contour_data,
         style = "position: absolute; top: 10px; right: 10px; z-index: 1000;
              color: lightgray; padding: 20px; font-family: 'Open Sans', sans-serif;
              border-radius: 5px; text-align: center; width: 200px;",
-        htmltools::tags$span(style = "font-size: 60px; display: block; font-weight: bold;", island_name),
+        htmltools::tags$span(style = "font-size: 60px; display: block; font-weight: bold;", paste0(island_name, " Island")),
         htmltools::tags$span(style = "font-size: 40px; display: block; font-weight: bold;", "Hawaii")
       )
     ) |>
@@ -62,7 +62,17 @@ contour_data <- tibble::tibble(
           island_abb = stringr::str_sub(.x, 1, 3) |> stringr::str_to_lower()
         )
       ) |>
+        dplyr::select(contour) |>
         sf::st_transform(4326) # WGS84
+    ),
+    elevation_simplified = purrr::map(
+      elevation,
+      ~ rmapshaper::ms_simplify(.x, keep = 0.1, sys = TRUE, quiet = TRUE) |>
+        dplyr::filter(!sf::st_is_empty(geometry))
+    ),
+    pct_retained = purrr::map2(
+      elevation, elevation_simplified, ~ round(nrow(.y) / nrow(.x) * 100, 2)
     )
   )
+
 
