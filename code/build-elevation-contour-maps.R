@@ -30,8 +30,8 @@ map_elevation_contours <- function(contour_data,
       htmltools::tags$div(
         style = "position: absolute; top: 10px; right: 10px; z-index: 1000;
              color: lightgray; padding: 20px; font-family: 'Open Sans', sans-serif;
-             border-radius: 5px; text-align: center; width: 200px;",
-        htmltools::tags$span(style = "font-size: 60px; display: block; font-weight: bold;", paste0(island_name, " Island")),
+             border-radius: 5px; text-align: center; width: 300px;",
+        htmltools::tags$span(style = "font-size: 60px; display: block; font-weight: bold;", island_name),
         htmltools::tags$span(style = "font-size: 40px; display: block; font-weight: bold;", "Hawaii")
       )
     ) |>
@@ -40,7 +40,7 @@ map_elevation_contours <- function(contour_data,
         style = "position: absolute; bottom: 10px; left: 10px; z-index: 1000;
            color: lightgray; padding: 10px; font-family: 'Open Sans', sans-serif;
            border-radius: 5px;",
-        htmltools::tags$span(style = "font-size: 14px;", "Data source: geoportal.hawaii.gov")
+        htmltools::tags$span(style = "font-size: 14px;", "Data source: planning.hawaii.gov")
       )
     )
 
@@ -76,3 +76,27 @@ contour_data <- tibble::tibble(
   )
 
 
+# Build maps -------------------------------------------------------------------
+contour_maps <- contour_data |>
+  dplyr::select(island_name, elevation_simplified) |>
+  dplyr::mutate(
+    elevation_map = purrr::map2(
+      island_name, elevation_simplified, ~ map_elevation_contours(.y, .x)
+    ),
+    map_path = glue::glue("{here::here('maps')}/{stringr::str_to_lower(island_name)}.html"),
+    preview_path = glue::glue("{here::here('previews')}/{stringr::str_to_lower(island_name)}.png")
+  )
+
+
+# Save maps --------------------------------------------------------------------
+contour_maps |>
+  dplyr::select(elevation_map, map_path) |>
+  purrr::pwalk(
+    ~ htmlwidgets::saveWidget(.x, .y, selfcontained = FALSE, libdir = "map_deps")
+  )
+
+
+# Save map previews ------------------------------------------------------------
+contour_maps |>
+  dplyr::select(map_path, preview_path) |>
+  purrr::pwalk(~ webshot2::webshot(.x, .y, delay = 2, quiet = TRUE))
