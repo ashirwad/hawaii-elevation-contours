@@ -84,7 +84,7 @@ contour_maps <- contour_data |>
       island_name, elevation_simplified, ~ map_elevation_contours(.y, .x)
     ),
     map_path = glue::glue("{here::here('maps')}/{stringr::str_to_lower(island_name)}.html"),
-    preview_path = glue::glue("{here::here('previews')}/{stringr::str_to_lower(island_name)}.png")
+    preview_path = glue::glue("{here::here('previews')}/{stringr::str_to_lower(island_name)}.jpg")
   )
 
 
