@@ -47,3 +47,22 @@ map_elevation_contours <- function(contour_data,
   # Return map
   map
 }
+
+
+# Download contour data --------------------------------------------------------
+contour_data <- tibble::tibble(
+  island_name = c("Hawaii", "Kahoolawe", "Kauai", "Lanai", "Maui", "Molokai", "Niihau", "Oahu")
+) |>
+  dplyr::mutate(
+    elevation = purrr::map(
+      island_name,
+      ~ sf::read_sf(
+        glue::glue(
+          "/vsizip//vsicurl/https://files.hawaii.gov/dbedt/op/gis/data/{island_abb}cntrs100.shp.zip",
+          island_abb = stringr::str_sub(.x, 1, 3) |> stringr::str_to_lower()
+        )
+      ) |>
+        sf::st_transform(4326) # WGS84
+    )
+  )
+
