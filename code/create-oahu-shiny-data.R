@@ -1,4 +1,5 @@
 # Data downloaded from: https://geoportal.hawaii.gov/datasets/cchnl::elevation-1/about
+# Go to Download -> Shapefile -> Download under "data" folder
 oahu <- sf::read_sf(here::here("data", "oahu-elevation.zip")) |>
   dplyr::rename(contour = ELEVATION_FT, geometry = SHAPE) |>
   sf::st_transform(4326)
