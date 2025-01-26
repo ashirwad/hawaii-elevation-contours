@@ -27,6 +27,7 @@ map_elevation_contours <- function(contour_data,
 
 # Data import ------------------------------------------------------------------
 oahu <- qs::qread(here::here("data", "oahu-animation.qs"))
+oahu_elevation_range <- oahu[["contour"]] |> range()
 
 
 # CSS styles -------------------------------------------------------------------
@@ -83,12 +84,12 @@ ui <- bslib::page(
         sliderInput(
           "contour_val",
           "Animate contours",
-          min = 100, # TODO: Update
-          max = 4000, # TODO: Update
+          min = oahu_elevation_range[1],
+          max = oahu_elevation_range[2],
           value = 20,
           step = 20,
           ticks = FALSE,
-          animate = animationOptions(interval = 100)
+          animate = animationOptions(interval = 260)
         )
       ),
       div(
