@@ -14,6 +14,8 @@ There is an island called Hawaii in the state of Hawaii!
 
 ![](previews/hawaii.jpg)
 
+[Explore interactive map](maps/hawaii.html)
+
 ## Kahoolawe
 
 ![](previews/kahoolawe.jpg)
