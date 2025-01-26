@@ -17,6 +17,14 @@
       "Hash": "85bf3bd8fa58da21a22d84fd4f4ef0a8",
       "Requirements": []
     },
+    "BH": {
+      "Package": "BH",
+      "Version": "1.87.0-1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "468d9a03ba57f22ebde50060fd13ba9f",
+      "Requirements": []
+    },
     "DBI": {
       "Package": "DBI",
       "Version": "1.2.3",
@@ -49,12 +57,28 @@
       "Hash": "470851b6d5d0ac559e9d01bb352b4021",
       "Requirements": []
     },
+    "RApiSerialize": {
+      "Package": "RApiSerialize",
+      "Version": "0.1.4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "363cffb978c5b0e8042623638e984574",
+      "Requirements": []
+    },
     "Rcpp": {
       "Package": "Rcpp",
       "Version": "1.0.14",
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "e7bdd9ee90e96921ca8a0f1972d66682",
+      "Requirements": []
+    },
+    "RcppParallel": {
+      "Package": "RcppParallel",
+      "Version": "5.1.10",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "34ee3ba92c1b2df651980325523ed22a",
       "Requirements": []
     },
     "V8": {
@@ -695,6 +719,19 @@
         "vctrs"
       ]
     },
+    "qs": {
+      "Package": "qs",
+      "Version": "0.27.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "54716cfa710dfa4fa63eae0244661478",
+      "Requirements": [
+        "BH",
+        "RApiSerialize",
+        "Rcpp",
+        "stringfish"
+      ]
+    },
     "rapidjsonr": {
       "Package": "rapidjsonr",
       "Version": "1.2.0",
@@ -905,6 +942,17 @@
       "Hash": "75940133cca2e339afce15a586f85b11",
       "Requirements": [
         "lattice"
+      ]
+    },
+    "stringfish": {
+      "Package": "stringfish",
+      "Version": "0.16.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "b7eb79470319ae71d4b5ed9cd7bf7294",
+      "Requirements": [
+        "Rcpp",
+        "RcppParallel"
       ]
     },
     "stringi": {
