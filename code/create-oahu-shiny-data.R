@@ -3,7 +3,7 @@
 oahu <- sf::read_sf(
   paste0("/vsizip/", here::here("data", "oahu-elevation.zip"))
 ) |>
-  dplyr::rename(contour = ELEVATION_FT, geometry = SHAPE) |>
+  dplyr::rename(contour = ELEVATION_) |>
   sf::st_transform(4326)
 
 oahu_20ft <- oahu |>
