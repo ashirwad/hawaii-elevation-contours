@@ -26,7 +26,7 @@ map_elevation_contours <- function(contour_data,
 
 
 # Data import ------------------------------------------------------------------
-oahu <- qs::qread(here::here("data", "oahu-animation.qs"))
+oahu <- qs::qread(here::here("data", "oahu-shiny.qs"))
 oahu_elevation_range <- oahu[["contour"]] |> range()
 
 
@@ -87,7 +87,7 @@ ui <- bslib::page(
           min = oahu_elevation_range[1],
           max = oahu_elevation_range[2],
           value = 20,
-          step = 20,
+          step = 80,
           ticks = FALSE,
           animate = animationOptions(interval = 260)
         )
