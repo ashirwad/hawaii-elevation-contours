@@ -20,29 +20,43 @@ There is an island called Hawaii in the state of Hawaii!
 
 ![](previews/kahoolawe.jpg)
 
+[Explore interactive map](maps/kahoolawe.html)
+
 ## Kauai
 
 ![](previews/kauai.jpg)
+
+[Explore interactive map](maps/kauai.html)
 
 ## Lanai
 
 ![](previews/lanai.jpg)
 
+[Explore interactive map](maps/lanai.html)
+
 ## Maui
 
 ![](previews/maui.jpg)
+
+[Explore interactive map](maps/maui.html)
 
 ## Molokai
 
 ![](previews/molokai.jpg)
 
+[Explore interactive map](maps/molokai.html)
+
 ## Niihau
 
 ![](previews/niihau.jpg)
 
+[Explore interactive map](maps/niihau.html)
+
 ## Oahu
 
 ![](previews/oahu.jpg)
+
+[Explore interactive map](maps/oahu.html)
 
 ## Acknowledgements
 
