@@ -42,6 +42,10 @@ There is an island called Hawaii in the state of Hawaii!
 
 ![](previews/oahu.jpg)
 
+## Acknowledgements
+
+I want to thank [Alexander Varlamov](https://www.linkedin.com/in/alexander-varlamov-8359054a/) for the inspiration and [Kyle Walker](https://www.linkedin.com/in/walkerke/) for his [mapgl R package](https://walker-data.com/mapgl/) that I have used heavily in this project.
+
 ## License
 
 Maps are licensed under the [Creative Commons Attribution-ShareAlike 4.0 International license (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/), and the source files are licensed under the [MIT license](https://ashirwad-barnwal.mit-license.org/).
